@@ -15,7 +15,6 @@ function Login({ form }) {
     e.preventDefault();
     form.validateFields((err, values) => {
       if (!err) {
-        console.log(values);
         Meteor.loginWithPassword(values.email, values.password, (err, res) => {
           if (err) {
             if (err.error === 403) {
@@ -24,7 +23,6 @@ function Login({ form }) {
               message.error(err.reason);
             }
           } else {
-            console.log(res);
             message.success('Bienvenue !');
           }
         });
