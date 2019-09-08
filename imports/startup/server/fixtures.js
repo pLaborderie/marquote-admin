@@ -1,6 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import seeder from '@cleverbeagle/seeder'
+import Quotes from "../../api/Quotes/Quotes";
 
+// Development (user and quotes)
 seeder(Meteor.users, {
   environments: ['development'],
   noLimit: true,
@@ -15,6 +17,23 @@ seeder(Meteor.users, {
         },
       },
     }],
+  },
+});
+
+seeder(Quotes, {
+  environments: ['development'],
+  resetCollection: false,
+  seedIfExistingData: false,
+  noLimit: true,
+  data: {
+    dynamic: {
+      count: 5,
+      seed(iteration, faker) {
+        return {
+          text: `Quote ${iteration}: ${faker.lorem.lines(1)}`,
+        }
+      },
+    },
   },
 });
 
