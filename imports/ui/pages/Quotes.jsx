@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
-import {Button, Card, List, message, Modal, Input} from 'antd';
-import {Meteor} from 'meteor/meteor';
-import {withTracker} from 'meteor/react-meteor-data';
+import React, { useState } from 'react';
+import { Button, Card, List, message, Modal, Input } from 'antd';
+import { Meteor } from 'meteor/meteor';
+import { withTracker } from 'meteor/react-meteor-data';
 
 import Quotes from '/imports/api/Quotes/Quotes';
 const { TextArea } = Input;
@@ -105,10 +105,8 @@ function QuotesPage({ loading, quotes }) {
           gutter: 16,
           xs: 1,
           sm: 2,
-          md: 4,
+          md: 3,
           lg: 4,
-          xl: 6,
-          xxl: 3,
         }}
         renderItem={(item, index) => (
           <List.Item
