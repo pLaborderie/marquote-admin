@@ -13,7 +13,7 @@ Meteor.methods({
     throw new Meteor.Error('403', 'Non autorisé à insérer une citation.');
   },
   'quotes.edit': function quotesEdit(id, values) {
-    check(id, String);
+    check(id, Match.OneOf(String, Meteor.Collection.ObjectID));
     check(values, {
       text: Match.Maybe(String),
       isActive: Match.Maybe(Boolean),
@@ -27,7 +27,7 @@ Meteor.methods({
     throw new Meteor.Error('403', 'Non autorisé à modifier une citation.');
   },
   'quotes.remove': function quotesRemove(id) {
-    check(id, String);
+    check(id, Match.OneOf(String, Meteor.Collection.ObjectID));
 
     if (this.userId) {
       return Quotes.remove(id);
