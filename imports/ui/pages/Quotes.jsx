@@ -115,6 +115,7 @@ function QuotesPage({ loading, quotes }) {
             <Card
               title={`Citation ${index + 1}`}
               actions={getActions(item)}
+              bodyStyle={{ height: 150, overflowY: 'auto' }}
             >
               {item._id === selected
                 ? <TextArea

@@ -27,10 +27,13 @@ seeder(Quotes, {
   noLimit: true,
   data: {
     dynamic: {
-      count: 5,
+      count: 20,
       seed(iteration, faker) {
         return {
-          text: `Quote ${iteration}: ${faker.lorem.lines(1)}`,
+          text: `${faker.lorem.lines(1)}`,
+          isActive: true,
+          createdAt: new Date,
+          updatedAt: new Date,
         }
       },
     },
